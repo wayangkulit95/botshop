@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Add Product</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Product</h1>
+        <form id="addProductForm">
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" required>
+            
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+            
+            <button type="submit">Add Product</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <script>
+        document.getElementById('addProductForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const price = document.getElementById('price').value;
+            const description = document.getElementById('description').value;
+
+            try {
+                const response = await fetch('/add-product', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, price, description }),
+                });
+                
+                const data = await response.json();
+                document.getElementById('message').innerText = data.message;
+            } catch (error) {
+                document.getElementById('message').innerText = "Error adding product";
+            }
+        });
+    </script>
+</body>
+</html>
