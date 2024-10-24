@@ -1,116 +1,27 @@
-Important Notes
-Replace Placeholders: After running the script, make sure to replace YOUR_TELEGRAM_BOT_TOKEN, YOUR_TOYYIBPAY_SECRET_KEY, and YOUR_CATEGORY_CODE in the app.js file.
-Dependencies: The script installs necessary Node.js packages for your project.
-Run Your Application: After the installation, navigate to the shop-bot directory and run your bot with:
-bash
-Copy code
-node app.js
+# Features
+
+## Product Management
+- Add, update, and remove products.
+- Each product can have a name, description, price, and image.
+
+## User Credit System
+- Users can purchase credits to spend on products.
+- Users can check their current credit balance.
+- Admins can top up user credits directly.
+
+## Admin Panel
+- Admins can manage user accounts and product listings.
+- Ability to view user activity and credit usage.
+
+## Notifications
+- Telegram bot sends notifications for user actions such as purchases and credit updates.
+- Admins receive alerts for important activities.
+
+## Easy Installation
+- A simple `install.sh` script to set up the bot environment on Ubuntu 20.04 LTS.
 
 
-Here's a comprehensive set of features for your Telegram shop bot script, along with a changelog and detailed installation instructions.
+''''
+bash <(curl -s https://raw.githubusercontent.com/wayangkulit95/usermanager/main/install.sh)
 
-### Features
-
-1. **Product Management**:
-   - **Add Products**: Admins can add new products with names, descriptions, prices, and images.
-   - **View Products**: Admins can view a list of all products, complete with images, names, and prices.
-   - **Delete Products**: Admins can delete products from the inventory.
-
-2. **User Interaction**:
-   - **Product Browsing**: Users can browse products by sending the `/shop` command.
-   - **Order Placement**: Users can place orders by replying with the product ID.
-   - **Order Confirmation**: Users receive a confirmation message with their order details.
-
-3. **Payment Processing**:
-   - **ToyyibPay Integration**: Users can make payments via ToyyibPay with a generated payment link.
-   - **Bank Transfer Option**: Users can opt for bank transfer payments, with instructions provided.
-
-4. **Image Handling**:
-   - **Product Images**: Upload and display images for each product in the bot and admin panel.
-
-5. **Web Panel**:
-   - **Admin Dashboard**: A web interface for managing products, with EJS templates for dynamic content.
-
-6. **Error Handling**:
-   - Basic error handling for database operations and API calls to improve user experience.
-
-7. **Data Storage**:
-   - **SQLite Database**: Use of SQLite for persistent storage of product and order data.
-
-8. **Customizable Settings**:
-   - **Environment Variables**: Ability to customize bot token, payment settings, and other configurations via environment variables.
-
-### Change Log
-
-#### Version 1.0.0 (YYYY-MM-DD)
-- Initial release of the Telegram shop bot.
-- Basic features implemented:
-  - Product management (add, view, delete).
-  - User interaction via Telegram bot commands.
-  - Payment processing through ToyyibPay and bank transfer.
-  - Web panel for admin management.
-  
-#### Future Versions
-- **Planned Features**:
-  - User authentication for the web panel.
-  - Improved error handling and logging.
-  - Additional payment options.
-  - Integration with delivery services for order tracking.
-  
-### Installation Instructions
-
-#### Prerequisites
-- Ensure you have **Node.js** and **npm** installed on your server.
-- You will need a **Telegram Bot Token** (create a bot using the BotFather on Telegram).
-- Sign up for **ToyyibPay** to get the necessary payment credentials.
-
-#### Steps to Install
-
-1. **Clone the Repository** (if applicable):
-   ```bash
-   git clone https://github.com/yourusername/shop-bot.git
-   cd shop-bot
-   ```
-
-2. **Run the Installation Script**:
-   - Create and make the `install.sh` script executable if not done already:
-     ```bash
-     chmod +x install.sh
-     ```
-   - Execute the script to set up the project:
-     ```bash
-     ./install.sh
-     ```
-
-3. **Configure Environment Variables**:
-   - Create a `.env` file in the project root and add your sensitive configurations:
-     ```plaintext
-     TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
-     TOYYIBPAY_SECRET_KEY=YOUR_TOYYIBPAY_SECRET_KEY
-     CATEGORY_CODE=YOUR_CATEGORY_CODE
-     ```
-
-4. **Install Dependencies**:
-   If not included in the `install.sh`, run the following command to install Node.js dependencies:
-   ```bash
-   npm install
-   ```
-
-5. **Run the Application**:
-   Start the bot and web server:
-   ```bash
-   node app.js
-   ```
-
-6. **Access the Admin Panel**:
-   - Open a web browser and go to `http://localhost:3000/admin/products` to manage your products.
-
-7. **Test the Bot**:
-   - Send the `/shop` command to your Telegram bot to start browsing products and placing orders.
-
-### Important Notes
-- Ensure your bot and web server are running concurrently. You may use tools like `pm2` to manage the Node.js application in production.
-- Regularly update your packages and review the code for security best practices.
-- Implement logging for monitoring and debugging your application as it scales.
-
-This detailed information should provide you with a solid foundation to work with your Telegram shop bot. If you have any specific features or additional requirements in mind, let me know!
+''''
